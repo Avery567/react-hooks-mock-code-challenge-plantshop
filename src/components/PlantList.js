@@ -11,7 +11,6 @@ function PlantList({plantList, addPlantToState}) {
           name={plant.name}
           image={plant.image}
           price={plant.price}
-          // newPlant={newPlant}
           addPlantToState={addPlantToState}
           />
 
