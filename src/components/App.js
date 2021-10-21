@@ -19,7 +19,7 @@ function App() {
   const addPlantToState = (userAddedPlant) => {
     const newPlantList = [userAddedPlant, ...plantList]
     setPlantList(newPlantList)
-    console.log(newPlantList)
+    // console.log(newPlantList)
   }
 
   const handleSearch = (input) => setSearch(input)
@@ -32,6 +32,15 @@ function App() {
     }
   }
 
+  const handleDeletePlant = (deletedPlant) => {
+    console.log(deletedPlant.id)
+    const updatedPlantList = filterResults().filter((plant) => plant.id !== deletedPlant.id);
+    setPlantList(updatedPlantList)
+    fetch(`${plantUrl}/${deletedPlant.id}`,{
+      method: "DELETE",
+    })
+  }
+
   return (
     <div className="app">
       <Header />
@@ -39,6 +48,7 @@ function App() {
         plantList={filterResults()}
         handleSearch={handleSearch}
         addPlantToState={addPlantToState}
+        handleDeletePlant={handleDeletePlant}
       />
     </div>
   );

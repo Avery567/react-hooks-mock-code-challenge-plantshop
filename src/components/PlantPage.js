@@ -3,7 +3,7 @@ import NewPlantForm from "./NewPlantForm";
 import PlantList from "./PlantList";
 import Search from "./Search";
 
-function PlantPage({plantList, addPlantToState, handleSearch}) {
+function PlantPage({plantList, addPlantToState, handleSearch, handleDeletePlant}) {
   return (
     <main>
       <NewPlantForm        
@@ -13,6 +13,7 @@ function PlantPage({plantList, addPlantToState, handleSearch}) {
       <PlantList
        plantList={plantList}
        addPlantToState={addPlantToState}
+       handleDeletePlant={handleDeletePlant}
       />
     </main>
   );
